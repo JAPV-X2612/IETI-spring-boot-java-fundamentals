@@ -17,6 +17,6 @@ public class HealthController {
 
     @GetMapping
     public String checkAPI() {
-        return "<h1>The API is working ok!</h1>";
+        return "<h1>The API is working!</h1>";
     }
 }
