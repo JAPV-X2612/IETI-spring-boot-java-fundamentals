@@ -51,4 +51,12 @@ public interface UsersService {
      * @return Updated user or null if not found
      */
     User update(String id, User user);
+
+    /**
+     * Finds a user by email
+     *
+     * @param email User email
+     * @return Optional containing the user if found
+     */
+    Optional<User> findByEmail(String email);
 }

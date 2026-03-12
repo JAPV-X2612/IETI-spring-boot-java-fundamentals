@@ -65,6 +65,19 @@ public class UsersController {
     }
 
     /**
+     * Finds a user by email
+     *
+     * @param email User email
+     * @return User with HTTP 200 or HTTP 404 if not found
+     */
+    @GetMapping("/email/{email}")
+    public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
+        Optional<User> user = usersService.findByEmail(email);
+        return user.map(ResponseEntity::ok)
+                   .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    /**
      * Updates an existing user
      *
      * @param id User ID
